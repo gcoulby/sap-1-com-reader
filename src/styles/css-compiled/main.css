@@ -1,0 +1,40 @@
+.led {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  margin: 0 0.2em;
+}
+
+.led-off {
+  background-color: #313131;
+}
+
+.led-red {
+  background-color: red;
+}
+
+.led-green {
+  background-color: lime;
+}
+
+.led-blue {
+  background-color: #0084ff;
+}
+
+.led-yellow {
+  background-color: yellow;
+}
+
+.led-array-title {
+  min-width: 80px;
+}
+
+.led-array-hex {
+  min-width: 50px;
+}
+
+.led-array-dec {
+  min-width: 60px;
+}
+/*# sourceMappingURL=main.css.map */
