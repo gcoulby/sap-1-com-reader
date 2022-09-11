@@ -1,3 +1,4 @@
+@import url("http://fonts.cdnfonts.com/css/seven-segment");
 .led {
   width: 15px;
   height: 15px;
@@ -36,5 +37,24 @@
 
 .led-array-dec {
   min-width: 60px;
+}
+
+.seg7 {
+  font-family: "Seven Segment", sans-serif;
+  font-size: 4em;
+  color: red;
+}
+
+.seg7 li {
+  background-color: black;
+  text-decoration: none;
+  list-style: none;
+  width: 50px;
+  margin: 1px;
+  display: inline-block;
+}
+
+.greyed {
+  color: black;
 }
 /*# sourceMappingURL=main.css.map */

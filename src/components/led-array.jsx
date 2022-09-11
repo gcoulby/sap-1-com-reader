@@ -5,7 +5,10 @@ function LedArray(props) {
     const [valueString, setValueString] = useState(props.count == 1 ? "0" : "00");
     useEffect(() => {
         if (props.value) {
-            setValueString(parseInt(props.value, 10).toString(16).toUpperCase());
+            let padLength = props.count == 1 ? 1 : 2;
+            setValueString(String(parseInt(props.value, 10).toString(16).toUpperCase()).padStart(padLength, "0"));
+        } else {
+            setValueString(props.count == 1 ? "0" : "00");
         }
     }, [props.value]);
     return (
@@ -39,7 +42,7 @@ function LedArray(props) {
                         })}
                     </span>
                     <span className="input-group-text led-array-hex">{valueString}</span>
-                    {props.count > 1 ? <span className="input-group-text led-array-dec">{props.value ?? 0}</span> : <></>}
+                    {props.count > 1 ? <span className="input-group-text led-array-dec">{String(props.value).padStart(3, "0") ?? "000"}</span> : <></>}
                 </div>
             </div>
         </>

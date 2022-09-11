@@ -1,0 +1,20 @@
+@import url("http://fonts.cdnfonts.com/css/seven-segment");
+
+.seg7 {
+    font-family: "Seven Segment", sans-serif;
+    font-size: 4em;
+    color: rgb(255, 0, 0);
+}
+
+.seg7 li {
+    background-color: black;
+    text-decoration: none;
+    list-style: none;
+    width: 50px;
+    margin: 1px;
+    display: inline-block;
+}
+
+.greyed {
+    color: black;
+}

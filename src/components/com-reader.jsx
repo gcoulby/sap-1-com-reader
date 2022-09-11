@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import LedArray from "./led-array";
 import env from "react-dotenv";
+import SevenSeg from "./seven-seg";
 
 const ENDPOINT = `http://localhost:${env.TCP_PORT}`;
 
@@ -11,7 +12,7 @@ function ComReader(props) {
     useEffect(() => {
         const socket = io(ENDPOINT);
         socket.on("serialdata", (data) => {
-            // console.log(JSON.parse(data.data));
+            console.log(JSON.parse(data.data));
             setData(JSON.parse(data.data));
         });
     }, []);
@@ -21,17 +22,19 @@ function ComReader(props) {
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12 col-xl-4">
-                        <div className="input-group mb-3">
+                        {/* <div className="input-group mb-3">
                             <span className="input-group-text">Counter</span>
                             <span className="input-group-text" style={{ width: "200px" }}>
                                 {data.CNT ?? 0}
                             </span>
-                        </div>
+                        </div> */}
                     </div>
                     <div className="col-sm-12 col-xl-4">
                         <LedArray title="BUS" value={data.BUS} colors={["red"]} count={8} />
                     </div>
-                    <div className="col-sm-12 col-xl-4"></div>
+                    <div className="col-sm-12 col-xl-4">
+                        <LedArray title="PC" value={data.CNT} colors={["green"]} count={4} />
+                    </div>
                 </div>
                 <div className="row">
                     <div className="col-sm-12 col-xl-4">
@@ -70,7 +73,10 @@ function ComReader(props) {
                         <LedArray title="IR" value={data.IR} colors={["blue", "yellow"]} count={8} colorMode="lower-band" />
                     </div>
                     <div className="col-sm-12 col-xl-4"></div>
-                    <div className="col-sm-12 col-xl-4"></div>
+                    <div className="col-sm-12 col-xl-4">
+                        <SevenSeg value={data.OUT ?? "000"} />
+                        {/* <div className="seg7">{(-127).toString()}</div> */}
+                    </div>
                 </div>
             </div>
         </>
